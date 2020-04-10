@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @note.name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= markdown(@note.content) %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @note.subject %>
+</p>
+
+<%= link_to 'Back', @subject %> |
+<%= link_to 'Edit', edit_subject_note_path(@subject,@note) %>

@@ -1,0 +1,16 @@
+<%= link_to 'Nueva nota', new_subject_note_path(@subject) %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @subject.name %>
+</p>
+
+<%= link_to 'Edit', edit_subject_path(@subject) %> |
+<%= link_to 'Back', subjects_path %>
+
+<% @subject.notes.each do |note|%>
+	<h1><%= note.name%></h1>
+	<p><%= note.content%></p>
+<% end %>
