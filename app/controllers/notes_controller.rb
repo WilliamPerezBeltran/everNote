@@ -20,14 +20,16 @@ class NotesController < ApplicationController
 
   # GET /notes/new
   def new
-    # binding.pry
     @subject = Subject.find(params['subject_id'])
     @note = Note.new
+    @action = params['action']
   end
 
   # GET /notes/1/edit
   def edit
-    binding.pry
+
+    @subject = Subject.find(params['subject_id'])
+    @note = Note.find(params['id'])
   end
 
   # POST /notes
@@ -38,18 +40,9 @@ class NotesController < ApplicationController
 
     @note.subject_id = @subject.id
 
-
-    
-
     respond_to do |format|
       if @note.save
-        # binding.pry
         @subject.notes << @note
-
-
-
-
-
         format.html { redirect_to [@subject, @note], notice: 'Note was successfully created.' }
         format.json { render :show, status: :created, location: @note }
       else
@@ -62,9 +55,10 @@ class NotesController < ApplicationController
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json
   def update
+    @subject = Subject.find(params['subject_id'])
     respond_to do |format|
       if @note.update(note_params)
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
+        format.html { redirect_to [@subject, @note], notice: 'Note was successfully updated.' }
         format.json { render :show, status: :ok, location: @note }
       else
         format.html { render :edit }

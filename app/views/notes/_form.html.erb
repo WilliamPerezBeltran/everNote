@@ -1,9 +1,7 @@
-<%= form_with(model: @note, url: [@subject, @note]) do |form| %>
-
+ <%= form_with(model: [@subject, @note] ) do |form| %>
   <% if note.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
-
       <ul>
       <% note.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,19 +10,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="form-group">
+    <%= form.label :name, 'Título' %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, col: 10, rows: 10 %>
+  <div class="form-group">
+    <%= form.label :content, 'Descripción' %>
+    <%= form.text_area :content, col: 10, rows: 15, class: 'form-control' %>
   </div>
-
- 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit button_text_note(@action), class:'btn btn-light' %>
   </div>
+  
 <% end %>

@@ -1,16 +1,100 @@
-<%= link_to 'Nueva nota', new_subject_note_path(@subject) %>
+<div class="container-fluid h-100">
+	<div class="row justify-content-center align-items-center h-100">
+		<!-- <div class="col"> -->
+			<div class="col col-sm-9 col-xl-9 col-md-9 col-lg-9">
 
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @subject.name %>
-</p>
+				
 
-<%= link_to 'Edit', edit_subject_path(@subject) %> |
-<%= link_to 'Back', subjects_path %>
+				<div style="margin-bottom: 30px;margin-top: 30px">
+				</div>
+				<div class="d-flex flex-row  justify-content-between">
+					<%= link_to 'Devolverse', subjects_path,class: 'btn btn-light' %>
+				</div>
+				<div class="d-flex flex-row  justify-content-between">
+					<h2>Temas de <%= @subject.name %></h2>
+					<%= link_to 'Nueva nota', new_subject_note_path(@subject), class:'btn btn-light' %>
+				</div>
+				<br>
 
-<% @subject.notes.each do |note|%>
-	<h1><%= note.name%></h1>
-	<p><%= note.content%></p>
-<% end %>
+
+				<div class="row">
+					<% @subject.notes.each do |note|%>
+					<div class=" col-xs-1 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+
+
+
+						<%= link_to [@subject,note] do  %>
+						<ul>
+							<li><%= note.name %></li>
+						</ul>
+						<% end   %>
+
+						
+
+					</div>
+					<% end %>
+				</div>
+
+				
+
+
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<div class="container-fluid h-100">
+	<div class="row justify-content-center align-items-center h-100">
+		<div class="col col-sm-9 col-xl-9 col-md-9 col-lg-9">
+			
+
+			<div style="margin-bottom: 30px;margin-top: 30px">
+			</div>
+			<div class="d-flex flex-row  justify-content-between">
+				<%= link_to 'Devolverse', subjects_path,class: 'btn btn-light' %>
+			</div>
+			<div class="d-flex flex-row  justify-content-between">
+				<h2>Temas de <%= @subject.name %></h2>
+				<%= link_to 'Nueva nota', new_subject_note_path(@subject), class:'btn btn-light' %>
+			</div>
+			<br>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Notas</th>
+						<th colspan="3"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @subject.notes.each do |note|%>
+					<tr>
+						<td><%= note.name %></td>
+						<td><%= link_to 'Show', [@subject,note] %></td>
+						<td><%= link_to 'Edit', edit_subject_note_path(@subject,note) %></td>
+						<td><%= link_to 'Destroy', subject_note_path(@subject,note), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+ -->

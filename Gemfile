@@ -39,7 +39,8 @@ gem 'pry'
 
 gem 'redcarpet'
 gem 'coderay'
-
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
 
 
 
