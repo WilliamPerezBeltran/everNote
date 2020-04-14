@@ -1,3 +1,5 @@
+
+  
 <%= form_with(model: subject, local: true) do |form| %>
   <% if subject.errors.any? %>
     <div id="error_explanation">
@@ -11,12 +13,16 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Crear tema ', class: 'btn btn-light btn-sm' %>
   </div>
+  <br>
 <% end %>
+
+
+

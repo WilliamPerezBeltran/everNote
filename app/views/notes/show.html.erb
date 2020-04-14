@@ -1,19 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @note.name %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= markdown(@note.content) %>
-</p>
-
-<p>
-  <strong>Subject:</strong>
-  <%= @note.subject %>
-</p>
-
-<%= link_to 'Back', @subject %> |
-<%= link_to 'Edit', edit_subject_note_path(@subject,@note) %>
+<div class="container-fluid h-100">
+	<div class="row justify-content-center align-items-center h-100">
+		<div class="col col-sm-9 col-xl-9 col-md-9 col-lg-9 ">
+			<div style="margin-bottom: 30px;margin-top: 30px">
+			</div>
+			<div class="card">
+				<div class="card-header d-flex flex-row  justify-content-center">
+					<%= @note.name %>
+				</div>
+				<div class="card-body">
+					<%= markdown(@note.content) %>
+				</div>
+			</div>
+			<br>
+			<div class="d-flex flex-row ">
+				<%= link_to 'devolverse', subject_path(@subject), class:'btn btn-light' %>
+				<div style="width:20px"></div>
+				
+				<%= link_to 'Editar nota', edit_subject_note_path(@subject,@note), class:'btn btn-light' %>
+				<%= link_to 'Edit', edit_subject_note_path(@subject,@note) %>
+						<%= link_to 'Destroy', subject_note_path(@subject,@note), method: :delete, data: { confirm: 'Are you sure?' } %>
+			</div>
+		</div>
+	</div>
+</div>
