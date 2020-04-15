@@ -1,7 +1,22 @@
+# ArgumentError in Notes#show
+# Showing /home/user/Desktop/software/proyectos_ruby_on_rails_2020/everNote/app/views/notes/show.html.erb where line #11 raised:
+
+# Symbol or String expected, but NilClass given.
+
+# Actually, this is a problem with CodeRay, not with Redcarpet.
+#  You didn't provide any Markdown but I guess you didn't specify 
+#  the language using a fenced code block and language ends up being 
+#  nil when block_code is called. You should certainly rather define a 
+#  default language to pass to CodeRay in case you didn't specify it in 
+#  	your Markdown or use the plain-old indented code blocks:
+
+# CodeRay.scan(code, language || :text).div
+
 module ApplicationHelper
 	class CodeRayify < Redcarpet::Render::HTML
 		def block_code(code, language)
-			CodeRay.scan(code, language).div
+			# CodeRay.scan(code, language).div
+			CodeRay.scan(code, language || :text).div
 		end
 	end
 
