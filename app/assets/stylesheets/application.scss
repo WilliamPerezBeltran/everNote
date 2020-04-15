@@ -1,1 +1,44 @@
 @import "bootstrap";
+
+table {
+    border:1px solid #ccc ;
+    border-radius:3px;
+    margin-bottom:20px;
+}
+table th {
+    padding:21px 25px 22px 25px;
+    border-top:1px solid #e0e0e0;
+    border-bottom:1px solid #e0e0e0;
+    border-right:1px solid #e0e0e0;
+}
+table td {
+    padding:18px;
+    border-top: 1px solid #ffffff;
+    border-bottom:1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+}
+
+
+pre{
+	background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+    border-radius: 3px;
+}
+
+blockquote{
+	border-left: 4px solid #DDD;
+    padding: 0 15px;
+    color: #777;
+	
+}
+code{
+	margin: 0 2px;
+	padding: 0px 5px;
+	border: 1px solid #ddd;
+	background-color: #f8f8f8;
+	border-radius: 3px;
+}
